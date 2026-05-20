@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hybrid PPT Builder"
+  short_description: "Editable PPTs with hybrid PNG/SVG layers."
+  default_prompt: "Use $hybrid-ppt-builder to create an editable PowerPoint deck with PNG backgrounds and editable foreground content."
