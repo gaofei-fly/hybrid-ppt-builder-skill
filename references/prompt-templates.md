@@ -1,11 +1,14 @@
 # PPT Prompt Templates
 
-Use these Chinese templates when the user wants reusable prompts or a staged PPT-generation workflow.
+This compatibility file is kept for older workflows that reference `prompt-templates.md`.
+For current staged prompts, prefer `sample-prompts.md`.
+
+Use these Chinese templates when the user wants a compact reusable prompt or staged PPT-generation workflow.
 
 ## 总控 Prompt
 
 ```text
-你是我的 PPT 制作助手。请严格按“需求确认 → 内容提炼 → 版式方案 → 分层制作 → 预览核对 → 交付”的流程执行。
+你是我的正式报告型 PPT 制作助手。请严格按“输入角色识别 -> 内容提炼 -> 背景/前景契约 -> 分层制作 -> 预览核对 -> 交付报告”的流程执行。
 
 我的默认策略是：
 1. 背景相对复杂且通常不改，优先使用 PNG/JPEG 保持视觉一致。
@@ -14,7 +17,7 @@ Use these Chinese templates when the user wants reusable prompts or a staged PPT
 4. 如果 Office 版本能稳定把 SVG 转换为 PowerPoint 形状，可以优先考虑“可转换 SVG”，但必须先验证；标题、正文和关键布局仍优先保留为原生对象。
 5. 不要用整页 PNG 或单个 SVG 图片层冒充可编辑 PPT。
 
-交付前必须导出预览图，检查页数、尺寸、背景、文字、对象数量和可编辑性。
+交付前必须导出预览图，检查页数、16:9 尺寸、背景、文字、对象数量、媒体数量、原生文本和可编辑性。
 ```
 
 ## 需求确认 Prompt
@@ -32,6 +35,9 @@ Use these Chinese templates when the user wants reusable prompts or a staged PPT
 - 是否保留讲稿/备注：
 - 风格关键词：
 - 禁止事项：
+- 背景/前景契约：
+- 是否需要 Gate 1 背景候选确认：
+- 是否需要 Gate 2 视觉样张确认：
 
 如果我说“SVG”，请先区分：SVG 源文件、PPT 中插入的 SVG 图片层、可被 PowerPoint 转换的 SVG、PowerPoint 原生形状。
 ```
@@ -46,6 +52,7 @@ Use these Chinese templates when the user wants reusable prompts or a staged PPT
 - 图标、复杂符号、装饰插画：SVG；如果可转换为形状，先测试再使用。
 - 需要改数据的图表：PowerPoint 原生图表或表格。
 - 不需要改的复杂示意图：SVG 或图片。
+- 不得把必须编辑的页面主张、标签、数据或结论放入背景图或不可编辑图片中。
 
 请说明每页每类对象的选择理由。
 ```
@@ -63,6 +70,7 @@ Use these Chinese templates when the user wants reusable prompts or a staged PPT
 - 不要把整页前景合成一张图片。
 - 中文字体优先使用 Microsoft YaHei。
 - 生成后保存到指定路径。
+- 如果是新的整体视觉系统，请先走背景候选和 2-3 页视觉样张确认；如果我明确要求一次性生成，请在最终报告说明已跳过确认。
 
 同时输出预览 PNG 和预览联系表。
 ```
@@ -80,7 +88,8 @@ Use these Chinese templates when the user wants reusable prompts or a staged PPT
 7. 如果使用 SVG，说明它是可编辑形状、可转换 SVG，还是仅作为稳定图形模块。
 8. 导出预览图，检查文字重叠、溢出、过小、过淡、边框或阴影过重。
 9. 检查中文是否乱码。
-10. 报告文件路径、页数、可编辑性验证方式和仍需人工确认的点。
+10. 检查关键术语是否作为原生文本存在。
+11. 报告文件路径、页数、任务模式、审批门是否使用/跳过、可编辑性验证方式和仍需人工确认的点。
 ```
 
 ## 最常用一句话
